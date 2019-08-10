@@ -1,6 +1,6 @@
 <div id=listproject class="container-fluid">
     <form #projectForm="ngForm">
-    <div class="panel panel-primary">
+    <div class="panel panel-success">
         <div class="panel-heading">
             <h3 class="panel-title">Create Project</h3>
         </div>
@@ -16,7 +16,7 @@
       <div class="form-group row">
           <label class="col-sm-2 checkbox-inline col-form-label">
               &nbsp;&nbsp;&nbsp;<input type="checkbox" [(ngModel)]="enableDate" ng-init="enableDate=false" name="enableDate" (change)="changeEvent(enableDate)">
-              <strong>Set start date and end date</strong>
+              <strong>Set Date</strong>
           </label>
           <div id=paddiv class="col-sm-4">
               <input class="form-control" placeholder="Start Date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="startDate" [(ngModel)]="project.startDate" name="startDate" [disabled]="!enableDate">&nbsp;&nbsp;&nbsp;&nbsp;
@@ -44,7 +44,7 @@
       <div class="form-group row">
           <div class="col-md-8">
               <input type="button" [value]="editProjectFlag ? 'Update' : 'Add'" style="width: 9em; margin-right:20px" class="btn btn-success" (click)="onSubmit(project);projectForm.reset();" [disabled]="!projectForm.form.valid"/>
-              <input type="button" value="Reset" style="width: 9em;" class="btn btn-primary" (click)="projectForm.reset()"/>
+              <input type="button" value="Reset" style="width: 9em;" class="btn btn-danger" (click)="projectForm.reset()"/>
           </div>
          
       </div>
@@ -85,7 +85,7 @@
                         <td>{{project.startDate | date: 'MM/dd/yyyy'}}</td>
                         <td>{{project.endDate | date: 'MM/dd/yyyy'}}</td>
                         <td>
-                            <button class="btn btn-primary" (click)="editProject(project)">Update</button>&nbsp;&nbsp;
+                            <button class="btn btn-success" (click)="editProject(project)">Update</button>&nbsp;&nbsp;
                             <button class="btn btn-danger" (click)="deleteProject(project)">Suspend</button>
                         </td>
                       </tr>
